@@ -7,7 +7,7 @@ It demonstrates a clean and minimal Express.js application that serves both back
 
 ## 🧩 Overview
 
-When a user accesses the root (`/`), they’re greeted with a playful interface offering two “realms”:
+When a user accesses the root (`/`), they’re greeted with a playful interface offering two interfaces:
 
 - **Simple View** – shows the basic required API endpoints:
 
@@ -38,33 +38,7 @@ The design intentionally keeps things simple, focusing on logic and interactivit
 | **Node.js / Express** | Backend framework handling API endpoints and static file serving |
 | **HTML / CSS / JS**   | Simple front-end interface for endpoint visualization            |
 | **No database**       | Data stored in-memory for demonstration                          |
-| **Render / Railway**  | Recommended free deployment platforms                            |
-
----
-
-## 🚀 Running Locally
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/javan-backend-test.git
-cd javan-backend-test
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Start the server
-
-```bash
-npm start
-```
-
-Then open your browser at
-👉 [http://localhost:3000](http://localhost:3000)
+| **VPS**               | Use my privilege for having a VPS                                |
 
 ---
 
@@ -120,10 +94,20 @@ Response:
 
 ---
 
+## 🚀 Deployed demo
+
+A public demo of this project is available at the domain:
+
+```
+https://javanbe.amiw.dev
+```
+
+Note: the backend uses in-memory storage (no persistent database). Data will reset when the server restarts.
+
+---
+
 ## 👩‍💻 Author
 
 **Amirah Dzatul Himmah**
 📧 [amirahdzh@gmail.com](mailto:amirahdzh@gmail.com)
 🌐 [https://amiw.dev](https://amiw.dev)
-
----
