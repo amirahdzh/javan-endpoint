@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JAVAN TECHNICAL TEST | PROGRAMMER BACK END</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <div class="title-group">
+          <h1>JAVAN TECHNICAL TEST</h1>
+          <h3>Programmer Back End</h3>
+        </div>
+        <div class="author-group">
+          <div class="author-name">
+            <strong>Amirah Dzatul Himmah</strong>
+          </div>
+          <div class="author-email">
+            <a href="mailto:amirahdzh@gmail.com">amirahdzh@gmail.com</a>
+          </div>
+          <div class="author-email">
+            <a href="https://amiw.dev" target="_blank" rel="noopener"
+              >https://amiw.dev</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <!-- chooser removed; show the realm directly -->
+
+      <!-- View header (toggle moved outside box) -->
+      <div id="viewHeader" class="header">
+        <div class="toggle-wrap">
+          <span class="note"
+            ><span
+              class="hint"
+              data-tip="'Simple' shows the minimal, required endpoints (GET all,
+        POST create, GET by id) with direct controls and brief inline
+        explanations. (a little bit playful tho! xD)"
+              >?</span
+            >Simple
+          </span>
+          <label class="switch" title="Toggle view (Simple / Less-Simple)">
+            <input
+              id="viewToggle"
+              type="checkbox"
+              aria-label="Toggle view"
+              onchange="if(this.checked){document.getElementById('toLess').click();}else{document.getElementById('toSimple').click();}"
+            />
+            <span class="slider"></span>
+          </label>
+          <span class="note"
+            >Less-Simple
+            <span
+              class="hint"
+              data-tip="
+        'Less-Simple' is a richer version of the endpoints (PUT
+        and DELETE) and looks like a boring-ahh CRUD app template.
+"
+              >?</span
+            ></span
+          >
+          <!-- <div class="toggle-state" aria-hidden="true">
+            Use the switch to change view
+          </div> -->
+        </div>
+        <div class="spacer"></div>
+        <!-- <small class="note">Toggle to change the content inside this box</small> -->
+        <!-- keep hidden buttons so existing script hooks (toSimple/toLess) still work -->
+        <button id="toSimple" class="btn hidden">Simple</button>
+        <button id="toLess" class="btn hidden">Less-Simple</button>
+      </div>
+
+      <!-- View box: toggle between Simple and Less-Simple (conceptual) -->
+      <div id="viewBox">
+        <!-- Simple panel (reuses existing simpleView content) -->
+        <div id="simpleView">
+          <!-- <p class="note">
+            Hover the <span class="hint hint-badge">?</span> icons to read short
+            developer explanations
+          </p> -->
+
+          <section>
+            <h3>
+              GET /users → Show all users
+              <span
+                class="hint"
+                data-tip="GET /users — returns an array of user objects. Useful to show the current data state."
+                >?</span
+              >
+            </h3>
+            <div class="refresh-row">
+              <button id="refresh">Refresh list</button>
+              <span
+                class="hint"
+                data-tip="you might be curious why every time you click this button, it keeps showing the same data. it's nothing but a fancy way to keep you engaged! lol XD. Just kidding. This button fetches the latest data from the server, which is useful if multiple clients are interacting with the API simultaneously."
+                >?</span
+              >
+            </div>
+            <pre id="listOut">[]</pre>
+            <div class="json-note">
+              <span class="note"
+                ><i>
+                  why I see JSON format? it has bad readability for
+                  non-technical user >:( !
+                </i></span
+              >
+              <span
+                class="hint"
+                data-tip="I can render it visually, but it will cost my time. Sorry, I'm completing the Programmer Back End technical test for Javan! Tell your front-end dev to make it pretty :)"
+                >?</span
+              >
+            </div>
+          </section>
+
+          <section>
+            <h3>
+              POST /users → Create new user
+              <span
+                class="hint"
+                data-tip="POST /users — send JSON {name,email,age}. Server adds id and createdAt automatically; and it will returns the created object."
+                >?</span
+              >
+            </h3>
+            <label>Name <input id="name" /></label>
+            <label>Email <input id="email" /></label>
+            <label>Age <input id="age" type="number" /></label>
+            <button id="create">Create</button>
+            <span
+              class="hint"
+              data-tip="maybe you'd laugh at me because you can fill in the data with whatever you want (￣▽￣). but hey, there's no validation requirement stated in the test. so i'll just keep it simple and let you create whatever data you want. now, who's at fault? (¬_¬)"
+              >?</span
+            >
+            <pre id="createOut"></pre>
+          </section>
+
+          <section>
+            <h3>
+              GET /users/:id → Show user by ID
+              <span
+                class="hint"
+                data-tip="GET /users/:id — provide the numeric id to fetch a single user. Returns 404 if missing."
+                >?</span
+              >
+            </h3>
+            <div class="row">
+              <input id="getId" class="col" placeholder="Enter id (e.g. 1)" />
+              <button id="getBtn">Get</button>
+            </div>
+            <pre id="getOut"></pre>
+          </section>
+
+          <!-- <p><button id="back">Back</button></p> -->
+        </div>
+
+        <!-- Less-Simple conceptual panel -->
+        <div id="lessSimplePanel" class="hidden">
+          <h3>Full Endpoint</h3>
+          <p class="note">
+            A simple CRUD interface using the same endpoints as the server.
+          </p>
+
+          <div class="crud-actions">
+            <button id="ls-refresh" class="btn">Refresh table</button>
+            <button id="ls-new" class="btn">New user</button>
+          </div>
+
+          <table id="ls-table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>createdAt</th>
+                <th>actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          <form id="ls-form" class="hidden">
+            <h4 id="ls-form-title">Edit user</h4>
+            <input type="hidden" id="ls-id" />
+            <label>Name <input id="ls-name" /></label>
+            <label>Email <input id="ls-email" /></label>
+            <label>Age <input id="ls-age" type="number" /></label>
+            <div class="row">
+              <button id="ls-save" type="button" class="btn">Save</button>
+              <button id="ls-cancel" type="button" class="btn">Cancel</button>
+            </div>
+            <pre id="ls-out"></pre>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
