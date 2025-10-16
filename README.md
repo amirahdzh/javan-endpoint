@@ -1,6 +1,6 @@
-# JAVAN TECHNICAL TEST – Backend Developer
+# JAVAN TECHNICAL TEST – Programmer Back End
 
-This project is a **technical test submission** for the **Backend Developer Internship at Javan**.
+This project is a **technical test submission** for the **Programmer Backend End at Javan**.
 It demonstrates a clean and minimal Express.js application that serves both backend API routes and a simple front-end interface for interacting with them.
 
 ---
