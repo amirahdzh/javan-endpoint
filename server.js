@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 3000;
 let users = [];
 let nextId = 1;
 
-// Health check / root
 // Serve index.html for root so the UI is accessible in the browser
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
@@ -31,7 +30,6 @@ app.get("/users/:id", (req, res) => {
   res.json(item);
 });
 
-// Create item
 // Create user
 app.post("/users", (req, res) => {
   const { name, email, age } = req.body;
@@ -47,7 +45,6 @@ app.post("/users", (req, res) => {
   res.status(201).json(newUser);
 });
 
-// Update item
 // Update user
 app.put("/users/:id", (req, res) => {
   const id = Number(req.params.id);

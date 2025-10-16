@@ -28,9 +28,6 @@
         </div>
       </header>
 
-      <!-- chooser removed; show the realm directly -->
-
-      <!-- View header (toggle moved outside box) -->
       <div id="viewHeader" class="header">
         <div class="toggle-wrap">
           <span class="note"
@@ -62,26 +59,15 @@
               >?</span
             ></span
           >
-          <!-- <div class="toggle-state" aria-hidden="true">
-            Use the switch to change view
-          </div> -->
         </div>
         <div class="spacer"></div>
-        <!-- <small class="note">Toggle to change the content inside this box</small> -->
-        <!-- keep hidden buttons so existing script hooks (toSimple/toLess) still work -->
+
         <button id="toSimple" class="btn hidden">Simple</button>
         <button id="toLess" class="btn hidden">Less-Simple</button>
       </div>
 
-      <!-- View box: toggle between Simple and Less-Simple (conceptual) -->
       <div id="viewBox">
-        <!-- Simple panel (reuses existing simpleView content) -->
         <div id="simpleView">
-          <!-- <p class="note">
-            Hover the <span class="hint hint-badge">?</span> icons to read short
-            developer explanations
-          </p> -->
-
           <section>
             <h3>
               GET /users → Show all users
@@ -151,11 +137,8 @@
             </div>
             <pre id="getOut"></pre>
           </section>
-
-          <!-- <p><button id="back">Back</button></p> -->
         </div>
 
-        <!-- Less-Simple conceptual panel -->
         <div id="lessSimplePanel" class="hidden">
           <h3>Full Endpoint</h3>
           <p class="note">
