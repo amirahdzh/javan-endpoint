@@ -6,7 +6,7 @@ app.use(express.json());
 // Serve static files from the public folder (index.html, client JS, CSS, ...)
 app.use(express.static(__dirname + "/public"));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // In-memory storage (array)
 let users = [];
